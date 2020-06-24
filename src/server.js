@@ -5,7 +5,7 @@ const http = require('http');
 
 const app = express();
 const server = http.Server(app);
-const io = socketio(server, {origins: "http://localhost:* http://127.0.0.1:*"});
+const io = socketio(server, {origins: "http://localhost:* http://127.0.0.1:* https://welingtonfidelis.github.io/ClimaCidade-web:*"});
 
 const connectedUsers = {};
 const port = 3001;
