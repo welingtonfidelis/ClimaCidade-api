@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  server:
+    container_name: node-api-clima-cidade
+    build: '.'
+    volumes:
+      - ./:/node-app
+      - ./node_modules:/node-app/node_modules
+    environment:
+      NODE_ENV: development
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - '3001:3001'
+
+  db:
+    image: 'mongo'
+    container_name: mongo-clima-cidade
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./data/db:/data/db
